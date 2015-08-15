@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER yakumo
 
 RUN apt-get update
-RUN apt-get install -qy curl git make software-properties-common
+RUN apt-get install -qy curl git make software-properties-common gcc
 
 # install go-lang
 RUN add-apt-repository ppa:evarlast/golang1.4
