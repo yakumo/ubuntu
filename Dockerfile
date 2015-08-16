@@ -25,9 +25,9 @@ ENV PATH $PATH:$GOBIN
 
 # make etcd
 RUN go get github.com/coreos/etcd
-RUN go install --installsuffix=etcd github.com/coreos/etcd
+RUN go install -v --installsuffix=etcd github.com/coreos/etcd
 
 # make skydns
 RUN go get github.com/skynetservices/skydns
-RUN go install --installsuffix=sky github.com/skynetservices/skydns
+RUN go build -v --installsuffix=sky github.com/skynetservices/skydns
 
