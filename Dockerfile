@@ -23,11 +23,15 @@ ENV GOPATH /usr/local/go
 ENV GOBIN /usr/local/go/bin
 ENV PATH $PATH:$GOBIN
 
+# go build settings
+ENV CGO_ENABLED 0
+ENV GOOS linux
+
 # make etcd
 RUN go get github.com/coreos/etcd
-RUN go install -v --installsuffix=etcd github.com/coreos/etcd
+RUN go build -v -a -ldflags '-w' --installsuffix=etcd github.com/coreos/etcd
 
 # make skydns
 RUN go get github.com/skynetservices/skydns
-RUN go build -v --installsuffix=sky github.com/skynetservices/skydns
+RUN go build -v -a -ldflags '-w' --installsuffix=sky github.com/skynetservices/skydns
 
