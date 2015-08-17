@@ -36,4 +36,4 @@ RUN go get github.com/skynetservices/skydns
 RUN go build -v -a -ldflags '-w' --installsuffix=sky github.com/skynetservices/skydns
 
 # nginx
-# ./configure --prefix=/opt/nginx --with-cc-opt="-static -static-libgcc" --with-ld-opt="-static"
+# ./configure --prefix=/opt/nginx --with-cc-opt="-static -static-libgcc" --with-ld-opt="-static" --user=www --group=www
