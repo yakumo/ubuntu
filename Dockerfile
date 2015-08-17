@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER yakumo
 
 RUN apt-get update
-RUN apt-get install -qy curl git make software-properties-common gcc mercurial
+RUN apt-get install -qy curl git make software-properties-common gcc mercurial libpcre3 libpcre3-dev zlib1g zlib1g-dev
 
 # install java
 RUN add-apt-repository -y ppa:webupd8team/java
@@ -35,3 +35,5 @@ RUN go build -v -a -ldflags '-w' --installsuffix=etcd github.com/coreos/etcd
 RUN go get github.com/skynetservices/skydns
 RUN go build -v -a -ldflags '-w' --installsuffix=sky github.com/skynetservices/skydns
 
+# nginx
+# ./configure --prefix=/opt/nginx --with-cc-opt="-static -static-libgcc" --with-ld-opt="-static"
